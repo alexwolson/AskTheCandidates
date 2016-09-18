@@ -1,0 +1,11 @@
+from flask import Flask, render_template, request
+import Trump12
+app = Flask(__name__)
+
+@app.route('/', methods = ['POST', 'GET'])
+def hello_world(name=None):
+    if request.method == 'POST':
+		resultT = Trump12.trump_respond(request.form['nm'])
+		resultC = Trump12.clinton_respond(request.form['nm'])
+        return render_template("hello.html", nameT=resultT, nameC=resultC, query=request.form['nm'])
+    return render_template('hello.html', nameT=None, nameC=None, query=None)

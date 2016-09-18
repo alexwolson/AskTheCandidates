@@ -1,0 +1,17 @@
+<!doctype html>
+<title>Hello from Flask</title>
+{% if name %}
+  <p><h3>You asked:</h3></p>
+  <p>{{ query }}</p>
+  <p><h3>Trump says:</h3></p>
+  <p>{{ name }}</p>
+  <p><h3>Clinton says:</h3></p>
+  <p>{{ name }}</p>
+{% endif %}
+<form action="/" method="POST">
+  <p><h3>Enter your question for Mr. Trump</h3></p>
+  <p><input type = 'text' name = 'nm' /></p>
+  <p><input type = 'submit' value = 'Ask'/></p>
+</form>
+
+

@@ -1,0 +1,34 @@
+<!doctype html>
+<head>
+  <style type="text/css">
+         body {
+            padding: 5px; 
+	    background: url('/static/american-flag.jpg') no-repeat scroll;
+            background-size: 100%;
+            min-height: 700px;
+
+         }
+         .square {
+            color:grey;
+	    background-color: white;
+            border: black 1px solid
+         }
+	
+ </style>
+</head>
+<title>#AskTheCandidates</title>
+<body>
+<div class="square" align="center">
+{% if name %}
+  <p ><h3>You asked about:</h3></p>
+  <p>{{ query }}</p>
+  <p><h3>The candidates said:</h3></p>
+  <p>{{ name | safe }}</p>
+{% endif %}
+<form action="/" method="POST">
+  <p><h3>Enter a policy topic for the candidates:</h3></p>
+  <p><input type = 'text' name = 'nm' /></p>
+  <p><input type = 'submit' value = 'Ask'/></p>
+</form>
+</div>
+</body>

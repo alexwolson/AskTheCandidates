@@ -1,0 +1,7 @@
+def say_Trump(sen):
+    import markovify
+    with open("2.speech") as f:
+        text = f.read()
+    text_model = markovify.Text(text)
+    for i in range(sen):
+        print(text_model.make_sentence())

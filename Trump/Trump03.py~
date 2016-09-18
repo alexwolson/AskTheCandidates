@@ -1,0 +1,24 @@
+import markovify
+import os
+import nltk
+import re
+class POSifiedText(markovify.Text):
+    def word_split(self, sentence):
+        words = re.split(self.word_split_pattern, sentence)
+        words = [ "::".join(tag) for tag in nltk.pos_tag(words) ]
+        return words
+
+    def word_join(self, words):
+        sentence = " ".join(word.split("::")[0] for word in words)
+        return sentence
+
+def say_Trump(sen):
+    models = []
+    for file in os.listdir("./"):
+        if file.endswith(".speech"):
+            with open(file) as f:
+                text = f.read()
+            models.append(markovify.Text(text))
+    model_combo = markovify.combine(models)
+    for i in range(sen):
+        print(model_combo.make_sentence())
