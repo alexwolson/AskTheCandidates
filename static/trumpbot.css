@@ -1,0 +1,42 @@
+body {
+  background-color: #050D35;
+}
+header {
+  background-color: #540000;
+}
+#logo {
+  font-family: 'Permanent Marker';
+  font-size: 32pt;
+  color: #FFFFFF;
+}
+#querybox {
+  background-image: url("flag.jpg");
+  background-size: cover;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.jumbotron {
+  margin: 0 auto;
+  width: 90%;
+  background: rgb(64, 64, 64); /* The Fallback */
+  background: rgba(0, 0, 0, 0.8);
+  color: #E2E2E2;
+}
+#query {
+  width: 370px;
+}
+#debate {
+  background: white;
+}
+#footer1 {
+  padding: 10px 0;
+  background: #2D2D2D;
+  color: #B5B5B5;
+}
+.about {
+  padding: 0 20px;
+}
+#footer2 {
+  background: #1E1E1E;
+  color: #B5B5B5;
+}

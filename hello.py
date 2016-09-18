@@ -10,8 +10,8 @@ def hello_world(name=None):
 		except:
 			result = Trumpbate02.debate().decode('ascii','ignore')
 		result = result.replace('\n', "<br>")
-		return render_template("hello.html", name = result, query=request.form['nm'])
-	return render_template('hello.html', nameT=None, nameC=None, query=None)
+		return render_template("index.html", name = result, query=request.form['nm'])
+	return render_template('index.html', nameT=None, nameC=None, query=None)
 
 @app.route('/qa', methods = ['POST', 'GET'])
 def hello_qa(name=None):

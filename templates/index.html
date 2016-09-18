@@ -1,0 +1,78 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <meta name="description" content="Finally ask Donald Trump and Hillary Clinton your burning questions. The catch is that they're actually robots...">
+  <meta name="keywords" content="Donald, Trump, Donald Trump, Hillary Clinton, Hillary, Clinton, debate, quotes">
+  <meta name="author" content="Team I20">
+  <title>DebateBot</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='trumpbot.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.1.0.js') }}" defer></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="container">
+      <div class="navbar-header">
+          <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-nav">
+              <i class="glyphicon glyphicon-menu-hamburger"></i>
+          </button>-->
+          <a class="navbar-brand" id="logo" href="#">DebateBot</a>
+      <!--</div>
+      <div>
+          <div class="collapse navbar-collapse navbar-right">
+              <ul class="nav navbar-nav">
+                  <li><a href="#">About</a></li>
+              </ul>
+          </div>-->
+      </div>
+    </div>
+  </header>
+  <main class="container-fluid" id="querybox">
+      <div class="jumbotron">
+        <h1>Ask Hillary Clinton and Donald Trump your burning questions.</h1>
+        <h2>The catch is that they're actually robots...</h2>
+        <form action="/" method="POST">
+          <div class="form-group">
+            <input type='text' name='nm' class="form-control" id="query"/>
+          </div>
+          <input type="submit" value="Ask" class="btn btn-default"/>
+        </form>
+      </div>
+  </main>
+  <section class="container" id="debate">
+    {% if name %}
+    <div class="row">
+      <div class="col-xs-12">
+        <h2 class="text-center">You asked about: {{ query }}</h2>
+      </div>
+    </div>
+      <div class="col-sm-10">
+        <h3>The candidates said:</h3>
+        <p> {{ name | safe }}</p>
+      </div>
+      <div class="col-sm-2">
+        <img src="/static/trump.png" class="img-responsive"/>
+        <img src="/static/hillary.png" class="img-responsive"/>
+      </div>
+    </div>
+    {% endif %}
+  </section>
+  <footer class="container-fluid">
+    <div class="row" id="footer1">
+      <div class="col-sm-6">
+        <h4 class="text-center about">About This Page</h4>
+        <p>We used a library of speeches from both candidates and markov chains to generate responses to your questions. We all have topics that we want to hear the candidates discuss, and we realized that we could use arkov chains to do it! So enter a topic and watch as we generate a conversation between Clinton and Trump on your subject.</p>
+      </div>
+      <div class="col-sm-6 about">
+        <h4 class="text-center">About Us</h4>
+        <p>We are a team of four developers from all over the world who stumbled into each other at HackMIT 2016. The back-end was built by Alex Olson and David Robinson in Python and Flask. The front-end was built by Bianca Morris and Emmanuel Rujoni in HTML, CSS, JQuery and Bootstrap.</p>
+      </div>
+    </div>
+    <div class="row" id="footer2">
+      <div class="col-xs-12 text-center">
+        &copy; Copyright 2016 Alex Olson, Bianca Morris, David Robinson, Emmanuel Rujoni
+      </div>
+    </div>
+  </footer>
+</body>
